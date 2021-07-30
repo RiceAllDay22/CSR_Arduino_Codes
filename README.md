@@ -4,7 +4,7 @@ This repository contains codes and documents for operating many different sensor
 
 ## CO2 Sensors
 - Sensirion SCD30
-- ![MH-Z16](Photos/MH-Z16_VersionA_Pic.jpg)  
+- [MH-Z16](Photos/MH-Z16_VersionA_Pic.jpg)  
 - MH-Z16 w/ I2C Adaptor
 - MH-Z16 w/o I2C Adaptor
 - SEN-0219
