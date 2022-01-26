@@ -25,7 +25,6 @@ WIRING
   VCC Pin  -> 5.0V Port
   SDA Pin  -> SDA  Port
   SCL Pin  -> SCL  Port
-  Refer to external png file for a picture of the wiring.
 
 CALIBRATION
   There is a white button on the blue adaptor.
@@ -35,9 +34,9 @@ CALIBRATION
 
 SPECIFICATIONS
   Collection Frequency is normally set to 1 second but can be increased or decreased.
-  Measurement Range is 0 to 5000 ppm.
-  Accuracy is ± (50 ppm + 5% of the Measured Value)
-  Current Consumption is 60 mA.
+  Measurement Range is 0 to 10000 ppm.
+  Accuracy is ± (100 ppm + 5% of the Measured Value)
+  Current Consumption is 60 mA on average.
 
 LINKS
   Product Info:     https://sandboxelectronics.com/?product=mh-z16-ndir-co2-sensor-with-i2cuart-5v3-3v-interface-for-arduinoraspeberry-pi
@@ -66,7 +65,7 @@ void setup() {
   }
   else {                                      //If the device does not activate, then run this block instead
     Serial.println("Error. Check wiring and restart Arduino");
-    while(1);                                 //This while loop will run indefinitely
+    while(1);                                 //This while loop will run indefinitely. Reset or disconnect the Arduino.
   }
 }
 
@@ -78,7 +77,7 @@ void loop() {
       Serial.println(conc);                   //Print the data into Serial
   }
   else {                                      //If the device cannot measure, then run the block below
-    Serial.println("No Data");                //Print this unfortunate message into the Serial port
+    Serial.println("No Data");                //Print this message into the Serial port
   }  
   delay(1000);                                //Wait for 1000 milliseconds before attempting to take more data readings. This value can be decreased or increased, as desired
 }
