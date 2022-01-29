@@ -1,13 +1,13 @@
 /*
-  The following code is intended specifically for the CU-1106 SL-N model.
+  The following code is intended specifically for the CU-1106-C model.
   Ensure that the ssensor has been wired properly, before running this code.
-  This code uses UART communication to send and recieve information to and from the CU-1106 sensor.
+  This code uses UART communication to send and recieve information to and from the CU-1106-C sensor.
  */
 
 //CHANGEABLE PARAMETERS//
-int READY_PIN = 3;        //Digital Pin number that is connected to the RDY pin of the sensor.
-int BUTTON_PIN = 2;       //Digital Pin number that the calibration button is attached to.
-int calValue = 700;       //Calibration value that the sensor will be calibrated to when the button is pressed. Range is 400 to 1500. DO NOT GO OUT OF RANGE
+const int BUTTON_PIN = 2; //Digital Pin number that the calibration button is attached to.
+int buttonState = 0;      //State of the calibration button. 0 means it is not pushed. 1 means it is pushed.
+int calValue = 1200;       //Calibration value that the sensor will be calibrated to when the button is pressed. Range is 400 to 1500. DO NOT GO OUT OF RANGE
 ///////////////////////
 
 
@@ -21,6 +21,7 @@ byte response_Cont[4];      //Response from sensor when message_Cont is sent to 
 byte response_Check[5];     //Response from sensor when message_Check is sent to it
 byte response_Meas[4];      //Response from sensor when message_Meas is sent to it
 byte response_Read[8];      //Response from sensor when message_Read is sent to it
+byte response_Calib[10];     //Response from sensor when calibration is performed
 
 
 //THIS IS THE SETUP LOOP THAT THE ARDUINO WILL RUN ONCE
@@ -28,13 +29,11 @@ void setup() {
   
   //SETUP CALIBRATION PROCESS
   pinMode(BUTTON_PIN, INPUT);
-  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), calibrateFunction, RISING);
-  if ( (calValue < 400) or (calValue > 1500))     //If the calibration value is out of range, an infinite loop will occur.
+  //attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), calibrateFunction, RISING);
+  if ( (calValue < 400) or (calValue > 1500)){     //If the calibration value is out of range, an infinite loop will occur.
     while(1);
-
-
-  //SETUP THE READY PIN
-  pinMode(READY_PIN, INPUT);
+    Serial.println("CALIBRATION POINT IS OUT OF RANGE");
+  }
 
   
   //SETUP SERIAL PORTS
@@ -85,9 +84,14 @@ void setup() {
 void loop() {
 
   //if (digitalRead(READY_PIN) == HIGH) {     //If the READY PIN is active, that means the sensor has information ready
-    readFunction();                         //Execute this function to read the information from the sensor
-    delay(500);                             //This delay acts as a debouncer
-  //}
+  readFunction();                         //Execute this function to read the information from the sensor
+  delay(500);                             //This delay acts as a debouncer
+  
+  buttonState = digitalRead(BUTTON_PIN);  //Read if the button is pressed or not
+  if (buttonState == HIGH){                //If it is pressed, then perform the calibration
+    calibrateFunction();
+  }
+  
 }
 
 
@@ -126,4 +130,7 @@ void calibrateFunction() {
   Serial.println("Calibration Performed");
 
   Serial1.write(command, 6);
+  Serial1.readBytes(response_Calib , 10);
+  
+  delay(1000);
 }
