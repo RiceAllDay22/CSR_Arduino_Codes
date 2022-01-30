@@ -1,13 +1,14 @@
 /*
-  The following code is intended specifically for the CU-1106-C model.
+  The following code is intended specifically for the CU-1106 SL-N model.
   Ensure that the ssensor has been wired properly, before running this code.
-  This code uses UART communication to send and recieve information to and from the CU-1106-C sensor.
+  This code uses UART communication to send and recieve information to and from the CU-1106 sensor.
  */
 
 //CHANGEABLE PARAMETERS//
-const int BUTTON_PIN = 2; //Digital Pin number that the calibration button is attached to.
+int READY_PIN = 3;        //Digital Pin number that is connected to the RDY pin of the sensor.
+int BUTTON_PIN = 2;       //Digital Pin number that the calibration button is attached to.
 int buttonState = 0;      //State of the calibration button. 0 means it is not pushed. 1 means it is pushed.
-int calValue = 1200;       //Calibration value that the sensor will be calibrated to when the button is pressed. Range is 400 to 1500. DO NOT GO OUT OF RANGE
+int calValue = 800;       //Calibration value that the sensor will be calibrated to when the button is pressed. Range is 400 to 1500. DO NOT GO OUT OF RANGE
 ///////////////////////
 
 
@@ -24,90 +25,86 @@ byte response_Read[8];      //Response from sensor when message_Read is sent to 
 byte response_Calib[10];     //Response from sensor when calibration is performed
 
 
+
 //THIS IS THE SETUP LOOP THAT THE ARDUINO WILL RUN ONCE
 void setup() {
-  
+  //SETUP THE READY PIN
+  pinMode(READY_PIN, INPUT);
+
+
   //SETUP CALIBRATION PROCESS
   pinMode(BUTTON_PIN, INPUT);
-  //attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), calibrateFunction, RISING);
-  if ( (calValue < 400) or (calValue > 1500)){     //If the calibration value is out of range, an infinite loop will occur.
+  if ( (calValue < 400) or (calValue > 1500))     //If the calibration value is out of range, an infinite loop will occur.
     while(1);
-    Serial.println("CALIBRATION POINT IS OUT OF RANGE");
-  }
 
-  
+
   //SETUP SERIAL PORTS
   Serial.begin(9600);
   Serial1.begin(9600);
-  Serial.println("Begin");
 
 
-//  //SET SENSOR TO CONTINUOUS MEASUREMENT MODE
-//  Serial1.write(message_Cont, 5);
-//  Serial1.readBytes(response_Cont, 4);
-//  Serial.println("Continuous Set:");
-//  for (int i=0; i<4; i++) {
-//    Serial.print(response_Cont[i], HEX);
-//    Serial.print("-");
-//  }
-//  Serial.println("");
+  //SET SENSOR TO CONTINUOUS MEASUREMENT MODE
+  Serial1.write(message_Cont, 5);
+  Serial1.readBytes(response_Cont, 4);
+  Serial.println("Continuous Set:");
+  for (int i=0; i<4; i++) {
+    Serial.print(response_Cont[i], HEX);
+    Serial.print("-");
+  }
+  Serial.println("");
 
 
-//  //CHECK IF THE SENSOR IS IN CONTINUOUS MODE
-//  Serial1.write(message_Check, 5);
-//  Serial1.readBytes(response_Check, 5);
-//  Serial.println("Continuous Check:");
-//  for (int i=0; i<5; i++) {
-//    Serial.print(response_Check[i], HEX);
-//    Serial.print("-");
-//  }
-//  Serial.println("");
+  //CHECK IF THE SENSOR IS IN CONTINUOUS MODE
+  Serial1.write(message_Check, 5);
+  Serial1.readBytes(response_Check, 5);
+  Serial.println("Continuous Check:");
+  for (int i=0; i<5; i++) {
+    Serial.print(response_Check[i], HEX);
+    Serial.print("-");
+  }
+  Serial.println("");
 
 
-//  //SET THE MEASUREMENT PERIOD 
-//  Serial1.write(message_Meas, 7); 
-//  Serial1.readBytes(response_Meas, 4);
-//  Serial.println("Measurement Set:");
-//  for (int i=0; i<4; i++) {
-//    Serial.print(response_Meas[i], HEX);
-//    Serial.print("-");
-//  }
-//  Serial.println("");
+  //SET THE MEASUREMENT PERIOD 
+  Serial1.write(message_Meas, 7); 
+  Serial1.readBytes(response_Meas, 4);
+  Serial.println("Measurement Set:");
+  for (int i=0; i<4; i++) {
+    Serial.print(response_Meas[i], HEX);
+    Serial.print("-");
+  }
+  Serial.println("");
   
-  
-  //BEGIN MEASUREMENTS
 }
 
 
 
 //THIS IS THE MAIN LOOP THAT THE ARDUINO WILL RUN FOREVER
 void loop() {
-  readFunction();                        //Execute this function to read the information from the sensor
-
+  if (digitalRead(READY_PIN) == LOW) {     //If the READY PIN is LOW, that means the sensor has information ready
+    readFunction();                        //Execute this function to read the information from the sensor
+  } 
 
   buttonState = digitalRead(BUTTON_PIN);  //Read if the button is pressed or not
   if (buttonState == HIGH){                //If it is pressed, then perform the calibration
     calibrateFunction();
   }
 
-  delay(1000);     //Wait for 1 second   
+  delay(1000);     //Wait for 1 second                        
+  
 }
-
-
-
-
 
 
 
 //DEFINING THE FUNCTION TO TAKE MEASUREMENTS
 void readFunction() {
   Serial1.write(message_Read, 4);   // ask for a measurement  
-  if (Serial1.available()) {
-    Serial1.readBytes(response_Read, 8);
+  if (Serial1.available()) {        
+    Serial1.readBytes(response_Read, 8); // read the measurement
     Serial.print(millis()/1000);
     Serial.print(":");
-    Serial.print(response_Read[3]*256 + response_Read[4]);
-    Serial.println(" ppm"); 
+    Serial.print(response_Read[3]*256 + response_Read[4]); // convert from bytes to a ppm value
+    Serial.println(" ppm");
   }
 }
 
