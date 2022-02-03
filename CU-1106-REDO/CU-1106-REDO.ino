@@ -18,20 +18,21 @@ byte response_Read[8];                                  //Response from sensor w
 byte response_Calib[4];                                 //Response from sensor when calibration is performed
 
 
-//THIS IS THE SETUP LOOP THAT THE ARDUINO WILL RUN ONCE
+//THIS IS THE SETUP CHUNK THAT THE ARDUINO WILL RUN ONCE
 void setup() {
-  //SETUP CALIBRATION BUTTON
-  pinMode(BUTTON_PIN, INPUT);
-  if ( (calValue < 400) or (calValue > 1500)){     //If the calibration value is out of range, an infinite loop will occur.
-    while(1);
-    Serial.println("CALIBRATION POINT IS OUT OF RANGE");
-  }
-  
   //SETUP SERIAL PORTS
   Serial.begin(9600);       // This is for the Serial Monitor of the Arduino
   Serial1.begin(9600);      // This is for the sensor UART line of the sensor
   Serial.println("Seconds  -  CO2");
 
+  
+  //SETUP CALIBRATION BUTTON
+  pinMode(BUTTON_PIN, INPUT);
+  if ( (calValue < 400) or (calValue > 1500)){     //If the calibration value is out of range, an infinite loop will occur.
+    Serial.println("CALIBRATION POINT IS OUT OF RANGE");
+    while(1);
+  }
+  
 }
 
 
