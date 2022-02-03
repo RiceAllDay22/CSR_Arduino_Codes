@@ -6,31 +6,32 @@
   This software will gather CO2 and time data from a CU-1106H-NS sensor and a DS3231 RTC module, respectively.
   The information automaticlly gets stored into a micro SD card via the SD card module.
   An external LED will blink each time a measurement is taken.
-  The external button is for calibration,
-  The switch is to safely shut down the SD card, before the Arduino Mega is manually disconnected from the power source.
+  
+  The external button is for calibration.
+  The toggle switch is to safely shut down the SD card, before the Arduino Mega is manually disconnected from the power source.
   When the SD card is safely shut down, the LED remains on, indicating that it is safe to disconnect the power supply.
 
   When the code is first ran, the LED is constantly on, while the modules are booting up.
   Once all modules are active, then the LED will begin to blink.
   If the LED does not blink within the first minute, that means there is something wrong with at least one of the modules.
 
-  Written by: Adriann Liceralde adriann8399@gmail.com
+  Written by: Adriann Liceralde
+  adriann8399@gmail.com
   */
   
 //IMPORT LIBRARIES
-#include <RTClib.h>
-#include <SdFat.h>
+#include <RTClib.h>           
+#include <SdFat.h> 
 
 
-//CHANGEABLE PARAMETERS//
-const int BUTTON_PIN = 2;       //Digital Pin number that the calibration button is attached to.
-const int SWITCH_PIN = 3;       //Digital Pin number that the toggle switch is attached to.
-const int LED_PIN = 4;          //Digital Pin number that the external LED is attached to.
+//PIN SETTINGS
+const int BUTTON_PIN = 2;       //Digital Pin #2
+const int SWITCH_PIN = 3;       //Digital Pin #3
+const int LED_PIN = 4;          //Digital Pin #4
 int buttonState = 0;            //State of the calibration button. 0 means it is not pushed. 1 means it is pushed.
 int ledState = 1;               //State of the led. 0 means that blinking is off and the led will stay on, indicating that the sd file is closed
 int calValue = 1200;            //Calibration value that the sensor will be calibrated to when the button is pressed.
                                 //calValue Range is 400 to 1500. DO NOT GO OUT OF RANGE
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //UART COMMANDS
 const byte message_Read[4]  = {0x11, 0x01, 0x01, 0xED}; //Command to ask for the CO2 reading
@@ -48,6 +49,7 @@ const uint8_t sdChipSelect = SS;
 SdFat sd;
 SdFile file;    
 
+
 //THIS IS THE SETUP CHUNK THAT THE ARDUINO WILL RUN ONCE
 void setup() {
   //SETUP SERIAL PORTS
@@ -56,9 +58,9 @@ void setup() {
 
 
   //SETUP EXTERNAL LED AND TOGGLE SWITCH
-  pinMode(LED_PIN, OUTPUT);     //Make the pin be output, so that it can control current flow into the LED
-  digitalWrite(LED_PIN, HIGH);   //This ensures that the LED is at on off-state 
-  attachInterrupt(digitalPinToInterrupt(SWITCH_PIN), fileclose, FALLING);
+  pinMode(LED_PIN, OUTPUT);       //Set the pin to output, so that it can control current flow into the LED
+  digitalWrite(LED_PIN, HIGH);    //This ensures that the LED starts as on
+  attachInterrupt(digitalPinToInterrupt(SWITCH_PIN), fileclose, FALLING); //Sets up the toggle switch
   
   //SETUP CALIBRATION BUTTON
   pinMode(BUTTON_PIN, INPUT);
@@ -95,23 +97,25 @@ void loop() {
   file.println(ppm);
   file.sync();
 
-  //LED BLINKING
+  //BLINK THE LED
   if (ledState == 1){
     digitalWrite(LED_PIN, HIGH);            //Turn led on
     delay(50);
     digitalWrite(LED_PIN, LOW);             //Turn led off
   }
-  
+
+  //CHECK CALIBRATION BUTTON
   buttonState = digitalRead(BUTTON_PIN);  //Check if the calibration button is pressed or not
   if (buttonState == HIGH){               //If it is pressed, then perform the calibration
     calibrateFunction();
   }
 
+  //WAIT FOR A SPECIFIED AMOUNT OF TIME BEFORE NEXT MEASUREMENT
   do {
     now_dt = rtc.now();
     now_ut = now_dt.unixtime();
   }
-  while ( now_ut < ut + 3 );
+  while ( now_ut < ut + 3 );            //This will wait until 3 seconds as elapsed. Change the value as desired.
   
 }
 

@@ -25,12 +25,14 @@ byte response_Meas[4];      //Response from sensor when message_Meas is sent to 
 byte response_Read[8];      //Response from sensor when message_Read is sent to it
 byte response_Calib[4];     //Response from sensor when calibration is performed
 
+uint32_t ppm;
 
 //THIS IS THE SETUP CHUNK THAT THE ARDUINO WILL RUN ONCE
 void setup() {
   //SETUP SERIAL PORTS
   Serial.begin(9600);       // This is for the Serial Monitor of the Arduino
   Serial1.begin(9600);      // This is for the sensor UART line of the sensor
+  Serial.println("Seconds  -  CO2");
 
 
   //SETUP THE READY PIN
@@ -87,7 +89,10 @@ void setup() {
 
 //THIS IS THE MAIN LOOP THAT THE ARDUINO WILL RUN FOREVER
 void loop() {
-  readFunction();                         //Execute this function to read the information from the sensor
+  ppm = readFunction();                   //Execute this function to read the information from the sensor
+  Serial.print(millis()/1000);            //Print how many seconds have passed
+  Serial.print(",");
+  Serial.println(ppm);
   
   buttonState = digitalRead(BUTTON_PIN);  //Check if the calibration button is pressed or not
   if (buttonState == HIGH){               //If it is pressed, then perform the calibration
@@ -99,16 +104,15 @@ void loop() {
 
 
 //DEFINING THE FUNCTION TO TAKE MEASUREMENTS
-void readFunction() {
+int readFunction() {
+  int conc = 0;
   Serial1.write(message_Read, 4);         //Send the command to ask for a measurement
   delay(10);      
   if (Serial1.available()) {              //Check if the sensor's UART has information to give
     Serial1.readBytes(response_Read, 8);  //If there is information, then read it
-    Serial.print(millis()/1000);
-    Serial.print(" - ");
-    Serial.print(response_Read[3]*256 + response_Read[4]);  //Convert the information to a CO2 ppm reading
-    Serial.println(" ppm"); 
+    conc = response_Read[3]*256 + response_Read[4];  //Convert the information to a CO2 ppm reading
   }
+  return conc;
 }
 
 

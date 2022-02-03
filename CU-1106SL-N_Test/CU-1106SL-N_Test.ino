@@ -5,7 +5,7 @@
  */
 
 //CHANGEABLE PARAMETERS//
-int READY_PIN = 3;        //Digital Pin number that is connected to the RDY pin of the sensor.
+int READY_PIN = 5;        //Digital Pin number that is connected to the RDY pin of the sensor.
 int BUTTON_PIN = 2;       //Digital Pin number that the calibration button is attached to.
 int buttonState = 0;      //State of the calibration button. 0 means it is not pushed. 1 means it is pushed.
 int calValue = 1000;      //Calibration value that the sensor will be calibrated to when the button is pressed.
