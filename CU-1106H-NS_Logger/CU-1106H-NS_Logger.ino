@@ -22,6 +22,7 @@
 //IMPORT LIBRARIES
 #include <RTClib.h>           
 #include <SdFat.h> 
+#include <avr/wdt.h>        
 
 
 //PIN SETTINGS
@@ -77,6 +78,8 @@ void setup() {
 
 
   Serial.println("Unixtime - CO2");
+  wdt_enable(WDTO_8S); //Enable the watchdog timer.
+                       //The board will reset after 8 seconds of inactivity, in case the sd card module is experiencing problems
 }
 
 
@@ -116,7 +119,8 @@ void loop() {
     now_ut = now_dt.unixtime();
   }
   while ( now_ut < ut + 3 );            //This will wait until 3 seconds as elapsed. Change the value as desired.
-  
+
+  wdt_reset(); // Reset the watchdog timer
 }
 
 
