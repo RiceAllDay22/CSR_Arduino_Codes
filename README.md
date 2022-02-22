@@ -4,12 +4,17 @@ This repository contains codes and documents for operating many different sensor
 
 ## CO2 Sensors
 - Sensirion SCD30
-- [MH-Z16](Photos/MH-Z16_VersionA_Pic.jpg)  
-- MH-Z16 w/ I2C Adaptor
-- MH-Z16 w/o I2C Adaptor
-- SEN-0219
 - GasHound LI-800
+- Cubic CU-1106-C
+- Cubic CU-1106H-NS
+- Cubic CU-1106SL-NS
+- Cubic CU-1106SL-N
+- MH-Z16 w/ I2C
+- MH-Z16 w/ PWM
+- MH-Z14 A
+- SEN-0219
 
-## Modules
+## Electronic Modules
 - DS3231 Timekeeping Module
 - SDCard Reader Module
+- Davis 6410 Anemometer
