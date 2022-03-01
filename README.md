@@ -10,7 +10,8 @@ The CSR_Arduino_Collection project and the WirelessSensorNetwork project are led
 
 Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey, Sean Taplin, and Andrew Winkelmann.
 
-## CO2 Sensors
+## [Individual_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules)CO2 Sensors
+### CO2 Sensors
 - [Sensirion SCD30](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SCD30)
 - [GasHound LI-800](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/GasHound_LI-800)
 - [Cubic CU-1106-C](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106-C)
@@ -22,15 +23,16 @@ Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey,
 - [MH-Z14A](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z14A)
 - [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219)
 
-## Electronic Modules
+### Electronic Modules
 - [DS3231 Timekeeping Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/DS3231)
 - [SDCard Reader Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SDCardModule)
 - [Davis 6410 Anemometer](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/Davis)
 
-## Data-Loggers
+## [Data_Loggers](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers)
 - [Link Test](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SCD30)
 
-## Multi-Sensors for Tests
+## [Miscellaneous_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules)
+### Multi-Sensors for Tests
 - [MultiSCD30](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiSCD30)
 - [MultiRTC](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiRTC)
 - [MultiCU1106](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiCU1106)
