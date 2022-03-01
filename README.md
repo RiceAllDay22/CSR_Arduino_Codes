@@ -10,7 +10,7 @@ The CSR_Arduino_Collection project and the WirelessSensorNetwork project are led
 
 Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey, Sean Taplin, and Andrew Winkelmann.
 
-## [Individual_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules)CO2 Sensors
+## [Individual_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules)
 ### CO2 Sensors
 - [Sensirion SCD30](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SCD30)
 - [GasHound LI-800](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/GasHound_LI-800)
@@ -22,7 +22,6 @@ Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey,
 - [MH-Z16 w/ PWM](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z16_w_PWM)
 - [MH-Z14A](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z14A)
 - [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219)
-
 ### Electronic Modules
 - [DS3231 Timekeeping Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/DS3231)
 - [SDCard Reader Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SDCardModule)
