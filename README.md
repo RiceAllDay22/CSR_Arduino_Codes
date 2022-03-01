@@ -1,8 +1,6 @@
 # CSR_Arduino_Codes
 
-This repository contains codes and documents for operating many different sensors and modules. <br>
-The Individual_Modules folder contains projects where only one electronic module is used. <br>
-The Data_Loggers folder contains projects where multiple modules are used to collect data. 
+This repository contains guides, codes, schematics, and datasheets for operating various sensors and modules. The Individual_Modules folder includes projects that focus on only one electronic component, such as a CO2 sensor. The Data_Loggers folder contains projects that combine multiple modules to create a device for collecting data. Lastly, the projects housed in the Miscellaneous_Modules folder are not intended for data logging but still utilize numerous components to achieve a purpose.
 
 ## CO2 Sensors
 - Sensirion SCD30
