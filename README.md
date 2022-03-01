@@ -4,7 +4,7 @@ The CSR_Arduino_Collection repository contains guides, codes, schematics, and da
 
 This repository aims to support the [WirelessSensorNetwork](https://github.com/jkub6/WirelessSensorNetwork) (WSN) project. WSN utilizes various electrical modules, most notably CO2 sensors. So having a repository that covers each one in greater detail may prove valuable. 
 
-Every hardware and every code in CSR_Arduino_Collection is given the Creative Commons License and the MIT License, respectively. Any content in the repository can be used and changed freely. The only requirement is that the original [license](CSR_Arduino_Collection/LICENSE.md at main · RiceAllDay22/CSR_Arduino_Collection (github.com) notice is included in any copies of the software. 
+Every hardware and every code in CSR_Arduino_Collection is given the Creative Commons License and the MIT License, respectively. Any content in the repository can be used and changed freely. The only requirement is that the original [license notice](https://github.com/RiceAllDay22/CSR_Arduino_Collection/blob/main/LICENSE.md) is included in any copies of the software. 
 
 The CSR_Arduino_Collection project and the WirelessSensorNetwork project are led by Adriann Liceralde under the leadership of Dr. Brian McPherson from the Carbon Science Research group at the University of Utah. Any questions, comments, or concerns are welcome to be sent to adriann8399@gmail.com.
 
