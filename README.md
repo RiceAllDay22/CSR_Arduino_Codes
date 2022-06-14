@@ -23,10 +23,10 @@ Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey,
 - [SDCard Reader Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SDCardModule)
 - [Davis 6410 Anemometer](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/Davis)
 ### Incomplete Guides
-- [GasHound LI-800](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/GasHound_LI-800)
-- [MH-Z16 w/ PWM](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z16_w_PWM)
-- [MH-Z14A](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z14A)
-- [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219)
+- [GasHound LI-800](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/GasHound_LI-800(Incomplete))
+- [MH-Z16 w/ PWM](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z16_w_PWM(Incomplete))
+- [MH-Z14A](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z14A(Incomplete))
+- [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219(Incomplete))
 - [Cubic CU-1106-C w I2C](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106_w_I2C(Incomplete))
 
 
