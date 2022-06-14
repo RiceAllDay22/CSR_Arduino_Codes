@@ -1,0 +1,1 @@
+The MultiRTC is a circuit that operates four copies of the DS3231 RTC module, simultaneously. The purpose of this is to assess the performance of the DS3231. Results of the assessment are found in https://github.com/RiceAllDay22/WirelessSensorNetwork/tree/master/Section1-Prototyping/Assessment-DS3231
