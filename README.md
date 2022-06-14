@@ -13,19 +13,22 @@ Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey,
 ## [Individual_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules)
 ### CO2 Sensors
 - [Sensirion SCD30](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SCD30)
-- [GasHound LI-800](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/GasHound_LI-800)
 - [Cubic CU-1106-C](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106-C)
 - [Cubic CU-1106H-NS](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106H-NS)
 - [Cubic CU-1106SL-N](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106SL-N)
 - [Cubic CU-1106SL-NS](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106SL-NS)
 - [MH-Z16 w/ I2C](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z16_w_I2C)
-- [MH-Z16 w/ PWM](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z16_w_PWM)
-- [MH-Z14A](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z14A)
-- [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219)
-### Electronic Modules
+### Electronic Devices
 - [DS3231 Timekeeping Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/DS3231)
 - [SDCard Reader Module](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SDCardModule)
 - [Davis 6410 Anemometer](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/Davis)
+### Incomplete Guides
+- [GasHound LI-800](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/GasHound_LI-800)
+- [MH-Z16 w/ PWM](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z16_w_PWM)
+- [MH-Z14A](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/MH-Z14A)
+- [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219)
+- [Cubic CU-1106-C w I2C](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106_w_I2C(Incomplete))
+
 
 ## [Data_Loggers](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers)
 - [Link Test](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SCD30)
