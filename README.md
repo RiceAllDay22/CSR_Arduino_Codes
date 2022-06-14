@@ -29,12 +29,16 @@ Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey,
 - [SEN-0219](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SEN-0219(Incomplete))
 - [Cubic CU-1106-C w I2C](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/CU-1106_w_I2C(Incomplete))
 
-
 ## [Data_Loggers](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers)
-- [Link Test](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Individual_Modules/SCD30)
+### Incomplete Guides
+- [CU-1106H-NS](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/CU-1106H-NS_Logger)
+- [CU-1106_UART_LCD_SD](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/CU-1106_UART_LCD_SD)
+- [CU-1106_UART_SD](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/CU-1106_UART_SD)
+- [MH-Z16_VeraionA_SDCard](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/MH-Z16_VersionA_SDCard)
 
 ## [Miscellaneous_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules)
-### Multi-Sensors for Tests
+### Multi-Sensors for Assessment Tests
 - [MultiSCD30](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiSCD30)
 - [MultiRTC](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiRTC)
-- [MultiCU1106](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiCU1106)
+### Incomplete Guides
+- [MultiCU1106](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules/MultiCU1106-incomplete)
