@@ -1,0 +1,1 @@
+The MultiSCD30 is a circuit that operates four copies of the SCD30 CO2 sensor, simultaneously. The purpose of this is to assess the performance of the SCD30. Results of the assessment are found in https://github.com/RiceAllDay22/WirelessSensorNetwork/tree/master/Section1-Prototyping/Assessment-SCD30
