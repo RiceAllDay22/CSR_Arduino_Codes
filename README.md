@@ -34,7 +34,7 @@ Notable contributors to the project are Jacob Larkin, Charlie Leo, Tessa Bailey,
 - [CU-1106H-NS](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/CU-1106H-NS_Logger)
 - [CU-1106_UART_LCD_SD](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/CU-1106_UART_LCD_SD)
 - [CU-1106_UART_SD](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/CU-1106_UART_SD)
-- [MH-Z16_VeraionA_SDCard](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/MH-Z16_VersionA_SDCard)
+- [MH-Z16_VersionA_SDCard](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Data_Loggers/MH-Z16_VersionA_SDCard)
 
 ## [Miscellaneous_Modules](https://github.com/RiceAllDay22/CSR_Arduino_Collection/tree/main/Miscellaneous_Modules)
 ### Multi-Sensors for Assessment Tests
