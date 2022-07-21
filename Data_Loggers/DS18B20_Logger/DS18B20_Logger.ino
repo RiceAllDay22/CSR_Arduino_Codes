@@ -18,11 +18,11 @@
   */
   
 //IMPORT LIBRARIES
-#include <OneWire.h> 
+#include <OneWire.h>
 #include <DallasTemperature.h>
-#include <RTClib.h>           
-#include <SdFat.h> 
-#include <avr/wdt.h>        
+#include <RTClib.h>
+#include <SdFat.h>
+#include <avr/wdt.h>
 
 //SETUP ONEWIRE
 #define ONE_WIRE_BUS 2
@@ -60,10 +60,10 @@ void setup() {
 
   //SETUP RTC AND SD MODULES
   RTCBegin();
+  //rtc.adjust(1645469240);
   SDBegin();
   file.open("DATA.csv", O_CREAT|O_WRITE|O_APPEND);
   file.print("UNIXTIME"); file.println("TEMP");
-
 
   Serial.println("Unixtime - Temp");
   wdt_enable(WDTO_8S); //Enable the watchdog timer.
@@ -77,15 +77,16 @@ void loop() {
   //GET TIME AND CO2
   dt = rtc.now();                         //Execute this function to retrieve the time from the RTC module
   ut = dt.unixtime();                     //Convert the dt variable to a unixtime
-  ppm = readFunction();                   //Execute this function to read the information from the sensor
+  sensors.requestTemperatures();
+  temp = sensors.getTempCByIndex(0);
 
   //PRINT DATA TO SERIAL AND TO SD CARD
   Serial.print(ut);
   Serial.print(",");
-  Serial.println(ppm);
+  Serial.println(temp);
   file.print(ut);
   file.print(",");
-  file.println(ppm);
+  file.println(temp);
   file.sync();
 
 //  //BLINK THE LED
@@ -101,14 +102,10 @@ void loop() {
     now_dt = rtc.now();
     now_ut = now_dt.unixtime();
   }
-  while ( now_ut < ut + 3 );            //This will wait until 3 seconds as elapsed. Change the value as desired.
+  while ( now_ut < ut + 1 );            //This will wait until 3 seconds as elapsed. Change the value as desired.
 
   wdt_reset(); // Reset the watchdog timer
 }
-
-
-
-
 
 
 
@@ -145,6 +142,6 @@ void SDBegin() {
 void fileclose() {
   Serial.println("Close");
   file.close();
-  ledState = 0;
-  digitalWrite(LED_PIN, HIGH);
+  //ledState = 0;
+  //digitalWrite(LED_PIN, HIGH);
 }
