@@ -63,7 +63,13 @@ void setup() {
   //rtc.adjust(1645469240);
   SDBegin();
   file.open("DATA.csv", O_CREAT|O_WRITE|O_APPEND);
-  file.print("UNIXTIME"); file.println("TEMP");
+  file.print("YEAR");
+  file.print("MONTH");
+  file.print("DAY");
+  file.print("HOUR");
+  file.print("MINUTE");
+  file.print("SECOND");
+  file.println("TEMP");
 
   Serial.println("Unixtime - Temp");
   wdt_enable(WDTO_8S); //Enable the watchdog timer.
@@ -81,10 +87,31 @@ void loop() {
   temp = sensors.getTempCByIndex(0);
 
   //PRINT DATA TO SERIAL AND TO SD CARD
-  Serial.print(ut);
-  Serial.print(",");
+  Serial.print(dt.year(), DEC);
+  Serial.print('/');
+  Serial.print(dt.month(), DEC);
+  Serial.print('/');
+  Serial.print(dt.day(), DEC);
+  Serial.print(" ");
+  Serial.print(dt.hour(), DEC);
+  Serial.print(':');
+  Serial.print(dt.minute(), DEC);
+  Serial.print(':');
+  Serial.print(dt.second(), DEC);
+  Serial.print(" ");
   Serial.println(temp);
-  file.print(ut);
+  
+  file.print(dt.year());
+  file.print(",");
+  file.print(dt.month());
+  file.print(",");
+  file.print(dt.day());
+  file.print(",");
+  file.print(dt.hour());
+  file.print(",");
+  file.print(dt.minute());
+  file.print(",");
+  file.print(dt.second());
   file.print(",");
   file.println(temp);
   file.sync();
